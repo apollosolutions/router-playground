@@ -1,0 +1,12 @@
+headers:
+  all:
+    request:
+      - propagate:
+          matching: "^*"
+
+#limits:
+#  max_depth: 2
+#  max_height: 2
+#  max_aliases: 1
+#  max_root_fields: 1
+#  warn_only: true
