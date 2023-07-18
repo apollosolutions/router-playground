@@ -4068,6 +4068,26 @@
                     "grpc",
                     "http"
                   ]
+                },
+                "temporality": {
+                  "description": "Temporality for export (default: `Cumulative`). Note that when exporting to Datadog agent use `Delta`.",
+                  "default": "cumulative",
+                  "oneOf": [
+                    {
+                      "description": "Export cumulative metrics.",
+                      "type": "string",
+                      "enum": [
+                        "cumulative"
+                      ]
+                    },
+                    {
+                      "description": "Export delta metrics. `Delta` should be used when exporting to DataDog Agent.",
+                      "type": "string",
+                      "enum": [
+                        "delta"
+                      ]
+                    }
+                  ]
                 }
               },
               "additionalProperties": false,
@@ -4521,6 +4541,26 @@
                   "enum": [
                     "grpc",
                     "http"
+                  ]
+                },
+                "temporality": {
+                  "description": "Temporality for export (default: `Cumulative`). Note that when exporting to Datadog agent use `Delta`.",
+                  "default": "cumulative",
+                  "oneOf": [
+                    {
+                      "description": "Export cumulative metrics.",
+                      "type": "string",
+                      "enum": [
+                        "cumulative"
+                      ]
+                    },
+                    {
+                      "description": "Export delta metrics. `Delta` should be used when exporting to DataDog Agent.",
+                      "type": "string",
+                      "enum": [
+                        "delta"
+                      ]
+                    }
                   ]
                 }
               },
