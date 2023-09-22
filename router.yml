@@ -4,9 +4,13 @@ headers:
       - propagate:
           matching: "^*"
 
-#limits:
-#  max_depth: 2
-#  max_height: 2
-#  max_aliases: 1
-#  max_root_fields: 1
-#  warn_only: true
+apq:
+  router:
+    cache:
+      in_memory:
+          limit: 1
+      redis:
+        urls:
+          [
+            "redis://localhost:6380",
+          ]
