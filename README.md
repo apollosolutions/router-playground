@@ -9,3 +9,19 @@ Run `./start-simple.sh`. This will spin up a Router and run the schema in `super
 First copy `.env.sample` to your own `.env` file. You can create an API key for this graph in Studio [E-commerce-Fed2@staging](https://studio.apollographql.com/graph/E-commerce-Fed2/variant/staging/home). This graph has an enterprise license.
 
 You can now configure and run enterprise features in `router.yml`.
+
+### Running Enterprise Features
+
+#### Redis Cache
+
+Make sure you have [Redis installed locally](https://redis.io/docs/getting-started/installation/)
+
+```shell
+brew install redis
+```
+
+Then run the start script
+
+```shell
+./start-redis.sh
+```
