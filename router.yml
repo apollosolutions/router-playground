@@ -1,16 +1,28 @@
-headers:
-  all:
-    request:
-      - propagate:
-          matching: "^*"
+#headers:
+#  all:
+#    request:
+#      - propagate:
+#          matching: "^*"
+#
+#
+#experimental_batching:
+#  enabled: true
+#  mode: batch_http_link
 
-apq:
-  router:
-    cache:
-      in_memory:
-          limit: 1
-      redis:
-        urls:
-          [
-            "redis://localhost:6379",
-          ]
+#apq:
+#  router:
+#    cache:
+#      in_memory:
+#          limit: 1
+#      redis:
+#        urls:
+#          [
+#            "redis://localhost:6379",
+#          ]
+
+#telemetry:
+#  metrics:
+#    prometheus:
+#      enabled: true
+#      listen: 127.0.0.1:4000
+#      path: /metrics
