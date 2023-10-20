@@ -1,10 +1,14 @@
-#headers:
-#  all:
-#    request:
-#      - propagate:
-#          matching: "^*"
-#
-#
+headers:
+  all:
+    request:
+      - propagate:
+          matching: "^*"
+
+rhai:
+  main: main.rhai
+  scripts: rhai/
+
+
 #experimental_batching:
 #  enabled: true
 #  mode: batch_http_link

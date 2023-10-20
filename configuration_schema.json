@@ -1005,6 +1005,37 @@
       },
       "additionalProperties": false
     },
+    "experimental_batching": {
+      "description": "Batching configuration.",
+      "default": {
+        "enabled": false,
+        "mode": "batch_http_link"
+      },
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "enabled": {
+          "description": "Activates Batching (disabled by default)",
+          "default": false,
+          "type": "boolean"
+        },
+        "mode": {
+          "description": "Batching mode",
+          "oneOf": [
+            {
+              "description": "batch_http_link",
+              "type": "string",
+              "enum": [
+                "batch_http_link"
+              ]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
     "experimental_chaos": {
       "description": "Configuration for chaos testing, trying to reproduce bugs that require uncommon conditions. You probably don’t want this in production!",
       "default": {
@@ -1599,44 +1630,7 @@
         }
       ]
     },
-    "plugins": {
-      "description": "Plugin configuration",
-      "default": null,
-      "properties": {
-        "experimental.broken": {
-          "description": "This is a broken plugin for testing purposes only.",
-          "type": "object",
-          "required": [
-            "enabled"
-          ],
-          "properties": {
-            "enabled": {
-              "description": "Enable the broken plugin.",
-              "type": "boolean"
-            }
-          }
-        },
-        "experimental.expose_query_plan": {
-          "description": "Expose query plan",
-          "type": "boolean"
-        },
-        "experimental.restricted": {
-          "description": "Restricted plugin (for testing purposes only)",
-          "type": "object",
-          "required": [
-            "enabled"
-          ],
-          "properties": {
-            "enabled": {
-              "description": "Enable the restricted plugin (for testing purposes only)",
-              "type": "boolean"
-            }
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "preview_persisted_queries": {
+    "persisted_queries": {
       "description": "Configures managed persisted queries",
       "default": {
         "enabled": false,
@@ -1678,6 +1672,43 @@
             }
           },
           "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "plugins": {
+      "description": "Plugin configuration",
+      "default": null,
+      "properties": {
+        "experimental.broken": {
+          "description": "This is a broken plugin for testing purposes only.",
+          "type": "object",
+          "required": [
+            "enabled"
+          ],
+          "properties": {
+            "enabled": {
+              "description": "Enable the broken plugin.",
+              "type": "boolean"
+            }
+          }
+        },
+        "experimental.expose_query_plan": {
+          "description": "Expose query plan",
+          "type": "boolean"
+        },
+        "experimental.restricted": {
+          "description": "Restricted plugin (for testing purposes only)",
+          "type": "object",
+          "required": [
+            "enabled"
+          ],
+          "properties": {
+            "enabled": {
+              "description": "Enable the restricted plugin (for testing purposes only)",
+              "type": "boolean"
+            }
+          }
         }
       },
       "additionalProperties": false
