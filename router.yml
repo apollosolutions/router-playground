@@ -4,9 +4,9 @@ headers:
       - propagate:
           matching: "^*"
 
-rhai:
-  main: main.rhai
-  scripts: rhai/
+#rhai:
+#  main: main.rhai
+#  scripts: rhai/
 
 
 #experimental_batching:
