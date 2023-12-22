@@ -4,6 +4,17 @@ headers:
       - propagate:
           matching: "^*"
 
+include_subgraph_errors:
+  all: true
+
+experimental_entity_cache:
+  redis:
+    urls: [ "redis://localhost:6379" ]
+  enabled: true
+  subgraphs:
+    products:
+      enabled: true
+
 #rhai:
 #  main: main.rhai
 #  scripts: rhai/
@@ -13,16 +24,13 @@ headers:
 #  enabled: true
 #  mode: batch_http_link
 
-#apq:
-#  router:
-#    cache:
-#      in_memory:
-#          limit: 1
-#      redis:
-#        urls:
-#          [
-#            "redis://localhost:6379",
-#          ]
+apq:
+  router:
+    cache:
+      in_memory:
+          limit: 1
+      redis:
+        urls: [ "redis://localhost:6379" ]
 
 #telemetry:
 #  metrics:
