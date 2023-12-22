@@ -1,7 +1,13 @@
+# IDE files
 .idea
-.env
+.vscode
+
+# Build and binaries
 router
 
+# Secrets
+.env
+entitlement.jwt
 
 # Redis
 dump.rdb
