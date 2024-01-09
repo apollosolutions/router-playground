@@ -7,18 +7,9 @@ headers:
 include_subgraph_errors:
   all: true
 
-experimental_entity_cache:
-  redis:
-    urls: [ "redis://localhost:6379" ]
-  enabled: true
-  subgraphs:
-    products:
-      enabled: true
-
 #rhai:
 #  main: main.rhai
 #  scripts: rhai/
-
 
 #experimental_batching:
 #  enabled: true
