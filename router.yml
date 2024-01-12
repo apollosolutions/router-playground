@@ -7,25 +7,19 @@ headers:
 include_subgraph_errors:
   all: true
 
+telemetry:
+  instrumentation:
+    spans:
+      mode: spec_compliant
+
 #rhai:
 #  main: main.rhai
 #  scripts: rhai/
 
-#experimental_batching:
-#  enabled: true
-#  mode: batch_http_link
-
-apq:
-  router:
-    cache:
-      in_memory:
-          limit: 1
-      redis:
-        urls: [ "redis://localhost:6379" ]
-
-#telemetry:
-#  metrics:
-#    prometheus:
-#      enabled: true
-#      listen: 127.0.0.1:4000
-#      path: /metrics
+#apq:
+#  router:
+#    cache:
+#      in_memory:
+#          limit: 1
+#      redis:
+#        urls: [ "redis://localhost:6379" ]
