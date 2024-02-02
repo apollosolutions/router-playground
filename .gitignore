@@ -11,3 +11,6 @@ entitlement.jwt
 
 # Redis
 dump.rdb
+
+# Node
+coprocessor/node_modules

@@ -12,6 +12,12 @@ telemetry:
     spans:
       mode: spec_compliant
 
+#coprocessor:
+#  url: http://localhost:3000
+#  router:
+#    request:
+#      headers: true
+
 #rhai:
 #  main: main.rhai
 #  scripts: rhai/
