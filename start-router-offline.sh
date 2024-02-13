@@ -4,5 +4,5 @@
 ./router \
   --config router.yml \
   --supergraph supergraph-schema.graphql \
-  --license entitlement.jwt \
+  --license ./offline/entitlement.jwt \
   --dev
