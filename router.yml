@@ -12,12 +12,6 @@ telemetry:
   instrumentation:
     spans:
       mode: spec_compliant
-  exporters:
-    tracing:
-      propagation:
-        baggage: true
-        trace_context: true
-
 
 #coprocessor:
 #  url: http://localhost:3000
