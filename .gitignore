@@ -10,7 +10,7 @@ router
 entitlement.jwt
 
 # Redis
-dump.rdb
+**/dump.rdb
 
 # Node
 coprocessor/node_modules
