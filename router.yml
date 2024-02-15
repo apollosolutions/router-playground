@@ -13,6 +13,11 @@ telemetry:
     spans:
       mode: spec_compliant
 
+#  exporters:
+#    tracing:
+#      zipkin:
+#        enabled: true
+
 #coprocessor:
 #  url: http://localhost:3000
 #  router:
@@ -30,3 +35,10 @@ telemetry:
 #          limit: 1
 #      redis:
 #        urls: [ "redis://localhost:6379" ]
+
+#preview_entity_cache:
+#  enabled: true
+#  redis:
+#    urls: ["redis://localhost:6379"]
+#    timeout: 2ms
+#    ttl: 24h
