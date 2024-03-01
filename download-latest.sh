@@ -1,3 +1,5 @@
+set -e
+
 echo "Downloading latest Router version..."
 curl -sSL https://router.apollo.dev/download/nix/latest | sh
 

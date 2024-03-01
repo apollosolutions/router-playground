@@ -12,29 +12,8 @@ You can now configure and run enterprise features in `router.yml`.
 
 Start with `./start-router-enterprise.sh`
 
-### Redis Cache
+### Starting other dependencies
 
-Install [Redis locally](https://redis.io/docs/getting-started/installation/)
-
-```shell
-brew install redis
-```
-
-Then run the start script
-
-```shell
-./start-redis.sh
-```
-
-### Prometheus
-Install [Prometheus locally](https://prometheus.io/docs/prometheus/latest/installation/)
-
-```shell
-brew install prometheus
-```
-
-Then run the start script
-
-```shell
-./start-prometheus.sh
-```
+Various other directories exist for the different dependencies you might use when running a Router locally.
+We have Zipkin for OpenTelemetry traces, Redis for the APQ cache, coprocessor in NodeJS, etc.
+Check out the README in each folder to learn more on how to start and use those.

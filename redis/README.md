@@ -1,12 +1,8 @@
 # Redis instance
-Make sure you have redis installed locally first
+Run the instance with Docker
 
 ```shell
-brew install redis
-```
-Then
-```shell
-./start-redis.sh
+docker-compose up --build
 ```
 
 This can then be used for APQ, Query Plan, or Entity cache
@@ -15,5 +11,5 @@ This can then be used for APQ, Query Plan, or Entity cache
 
 In a separate terminal run:
 ```shell
-redis-cli monitor
+docker exec -it redis-cache-1 redis-cli monitor
 ```
