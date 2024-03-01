@@ -1,3 +1,5 @@
+set -e
+
 # First hit to load APQ
 echo
 echo "Operation 1 with query"

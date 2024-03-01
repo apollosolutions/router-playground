@@ -1,3 +1,5 @@
+set -e
+
 # Requires enterprise support
 source .env
 
