@@ -5,4 +5,5 @@ source .env
 
 ./router \
   --config router.yml \
+  --supergraph supergraph-schema.graphql \
   --dev

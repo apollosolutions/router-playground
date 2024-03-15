@@ -1,16 +1,17 @@
 # IDE files
 .idea
 .vscode
+.DS_Store
 
 # Build and binaries
-router
+router/router
 
 # Secrets
-.env
-entitlement.jwt
+router/.env
+router/entitlement.jwt
 
 # Redis
-**/dump.rdb
+router/dump.rdb
 
 # Node
-coprocessor/node_modules
+**/node_modules

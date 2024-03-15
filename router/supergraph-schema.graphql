@@ -1,0 +1,116 @@
+schema
+  @link(url: "https://specs.apollo.dev/link/v1.0")
+  @link(url: "https://specs.apollo.dev/join/v0.3", for: EXECUTION)
+{
+  query: Query
+}
+
+directive @join__enumValue(graph: join__Graph!) repeatable on ENUM_VALUE
+
+directive @join__field(graph: join__Graph, requires: join__FieldSet, provides: join__FieldSet, type: String, external: Boolean, override: String, usedOverridden: Boolean) repeatable on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+
+directive @join__graph(name: String!, url: String!) on ENUM_VALUE
+
+directive @join__implements(graph: join__Graph!, interface: String!) repeatable on OBJECT | INTERFACE
+
+directive @join__type(graph: join__Graph!, key: join__FieldSet, extension: Boolean! = false, resolvable: Boolean! = true, isInterfaceObject: Boolean! = false) repeatable on OBJECT | INTERFACE | UNION | ENUM | INPUT_OBJECT | SCALAR
+
+directive @join__unionMember(graph: join__Graph!, member: String!) repeatable on UNION
+
+directive @link(url: String, as: String, for: link__Purpose, import: [link__Import]) repeatable on SCHEMA
+
+scalar join__FieldSet
+
+enum join__Graph {
+  PRODUCTS @join__graph(name: "products", url: "http://localhost:4001/products/graphql")
+  REVIEWS @join__graph(name: "reviews", url: "http://localhost:4001/reviews/graphql")
+  USERS @join__graph(name: "users", url: "http://localhost:4001/users/graphql")
+}
+
+scalar link__Import
+
+enum link__Purpose {
+  """
+  `SECURITY` features provide metadata necessary to securely resolve fields.
+  """
+  SECURITY
+
+  """
+  `EXECUTION` features provide metadata necessary for operation execution.
+  """
+  EXECUTION
+}
+
+"""
+A specific product sold by our store. This contains all the high level details but is not the purchasable item.
+See Variant for more info.
+"""
+type Product
+  @join__type(graph: PRODUCTS, key: "id")
+  @join__type(graph: REVIEWS, key: "id")
+{
+  id: ID!
+  title: String @join__field(graph: PRODUCTS)
+  description: String @join__field(graph: PRODUCTS)
+  mediaUrl: String @join__field(graph: PRODUCTS)
+  releaseDate: String @join__field(graph: PRODUCTS)
+  price: Float! @join__field(graph: PRODUCTS)
+  reviews: [Review!] @join__field(graph: REVIEWS)
+}
+
+"""Search filters for when returning Products"""
+input ProductSearchInput
+  @join__type(graph: PRODUCTS)
+{
+  titleStartsWith: String
+}
+
+type Query
+  @join__type(graph: PRODUCTS)
+  @join__type(graph: REVIEWS)
+  @join__type(graph: USERS)
+{
+  """
+  Get all available products to shop for. Optionally provide some search filters
+  """
+  searchProducts(searchInput: ProductSearchInput! = {}): [Product] @join__field(graph: PRODUCTS)
+
+  """
+  Get a specific product by id. Useful for the product details page or checkout page
+  """
+  product(id: ID!): Product @join__field(graph: PRODUCTS)
+
+  """
+  Get the current user from our fake "auth" headers
+  Set the "x-user-id" header to the user id.
+  """
+  user(id: ID!): User @join__field(graph: USERS)
+  allUsers: [User] @join__field(graph: USERS)
+}
+
+"""A review of a given product by a specific user"""
+type Review
+  @join__type(graph: REVIEWS, key: "id")
+{
+  id: ID!
+
+  """The plain text version of the review"""
+  body: String
+
+  """The User who submitted the review"""
+  user: User
+
+  """The product which this review is about"""
+  product: Product
+}
+
+"""An user account in our system"""
+type User
+  @join__type(graph: REVIEWS, key: "id", resolvable: false)
+  @join__type(graph: USERS, key: "id")
+{
+  id: ID!
+  username: String! @join__field(graph: USERS)
+  loyaltyPoints: Int @join__field(graph: USERS)
+  shippingAddress: String @join__field(graph: USERS)
+}
