@@ -1,16 +1,23 @@
 # router-playground
-Small repo that has a basic Router config to test enterprise and OSS accounts
+Small repo that has a basic Router config to test enterprise and OSS features with subgraphs
 
 
-### Testing OSS
-Run `./start-router-oss.sh`. This will spin up a Router and run the schema in `supergraph-schema.graphql` which points at many subgraphs running at `https://*.demo.starstuff.dev`
+## Starting Subgraphs
+- Navigate to subgraph folder `cd subgraphs/`
+- Install libraries `npm i`
+- Run all subgraphs `npm start`
+
+## Starting Router
+- Navigate to router folder `cd router/`
+- Setup `.env` file (see below)
+- Download Router binary `./download-latest.sh`
+- Compose supergraph (if schema has changed) `./compose.sh`
+- Start Router with config `./start-router.sh`
 
 ## Testing Enterprise
 First copy `.env.sample` to your own `.env` file. You can create an API key for this graph in Studio [E-commerce-Fed2@staging](https://studio.apollographql.com/graph/E-commerce-Fed2/variant/staging/home). This graph has an enterprise license.
 
 You can now configure and run enterprise features in `router.yml`.
-
-Start with `./start-router-enterprise.sh`
 
 ### Starting other dependencies
 
