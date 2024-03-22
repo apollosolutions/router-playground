@@ -5,6 +5,7 @@
 
 # Build and binaries
 router/router
+router/configuration_schema.json
 
 # Secrets
 router/.env
