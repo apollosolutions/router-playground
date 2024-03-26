@@ -15,7 +15,7 @@ Small repo that has a basic Router config to test enterprise and OSS features wi
 - Start Router with config `./start-router.sh`
 
 ## Testing Enterprise
-First copy `.env.sample` to your own `.env` file. You can create an API key for this graph in Studio [E-commerce-Fed2@staging](https://studio.apollographql.com/graph/E-commerce-Fed2/variant/staging/home). This graph has an enterprise license.
+First copy `.env.sample` to your own `.env` file. You can create an API key for this graph in Studio [E-commerce-Fed2@production](https://studio.apollographql.com/graph/E-commerce-Fed2/variant/production/home). This graph has an enterprise license.
 
 You can now configure and run enterprise features in `router.yml`.
 
